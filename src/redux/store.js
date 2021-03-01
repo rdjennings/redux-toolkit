@@ -1,10 +1,10 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { configureStore } from '@reduxjs/toolkit';
+import classCounterReducer from '../features/classSliceExample/classSlice';
+import functionCounterReducer from '../features/functionSliceExample/functionSlice';
 
-import thunk from 'redux-thunk';
-import rootReducers from './reducers';
-
-export default createStore(
-	rootReducers,
-	composeWithDevTools(applyMiddleware(thunk))
-);
+export default configureStore({
+	reducer: {
+		classCounter: classCounterReducer,
+		functionCounter: functionCounterReducer,
+	},
+});

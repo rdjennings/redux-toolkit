@@ -1,11 +1,11 @@
 import './App.css';
-import ComponentExample from './components/ClassExample';
-import FunctionExample from './components/FunctionExample';
+import ComponentExample from './features/classSliceExample/ClassExample';
+import FunctionExample from './features/functionSliceExample/FunctionExample';
 
 function App() {
 	return (
 		<div>
-			<ComponentExample />
+			{/* <ComponentExample /> */}
 			<FunctionExample />
 		</div>
 	);
