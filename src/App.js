@@ -5,7 +5,7 @@ import FunctionExample from './features/functionSliceExample/FunctionExample';
 function App() {
 	return (
 		<div>
-			{/* <ComponentExample /> */}
+			<ComponentExample />
 			<FunctionExample />
 		</div>
 	);

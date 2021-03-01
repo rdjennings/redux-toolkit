@@ -9,13 +9,14 @@ export const funcCounterSlice = createSlice({
 		funcIncrement: (state) => {
 			state.value += 1;
 		},
-		funcsDecrement: (state) => {
+		funcDecrement: (state) => {
 			state.value -= 1;
 		},
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { funcsDecrement, funcIncrement } = funcCounterSlice.actions;
+const { actions, reducer } = funcCounterSlice;
+export const { funcDecrement, funcIncrement } = actions;
 
-export default funcCounterSlice.reducer;
+export default reducer;

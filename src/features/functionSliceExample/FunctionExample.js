@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { funcsDecrement, funcIncrement } from './functionSlice';
+import { funcDecrement, funcIncrement } from './functionSlice';
 import classnames from 'classnames';
 
 const FunctionExample = () => {
@@ -15,7 +15,7 @@ const FunctionExample = () => {
 		dispatch(funcIncrement());
 	};
 	const decrement = () => {
-		dispatch(funcsDecrement());
+		dispatch(funcDecrement());
 	};
 	return (
 		<div className="wrapper">

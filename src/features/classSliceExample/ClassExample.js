@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CLASS_DEC, CLASS_INC } from '../../redux/actionTypes';
+import store from '../../redux/store';
 
-class ComponentExample extends Component {
+import { classDecrement, classIncrement } from './classSlice';
+class ClassExample extends Component {
 	render() {
 		const incrementCount = () => {
-			this.props.increment();
+			store.dispatch(classIncrement());
 		};
 		const decrementCount = () => {
-			this.props.decrement();
+			store.dispatch(classDecrement());
 		};
+		const count = this.props.classCounter.value;
 		return (
 			<div className="wrapper">
-				<div>Classes Count: {this.props.count}</div>
+				<div>Classes Count: {count}</div>
 				<div>
 					<button onClick={incrementCount}>Increment Class Counter</button>
 					<button onClick={decrementCount}>Decrement Class Counter</button>
@@ -22,16 +24,13 @@ class ComponentExample extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	const count = state.classReducers.count;
-	return { count };
+const mapState = (state) => {
+	return state;
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		increment: () => dispatch({ type: CLASS_INC }),
-		decrement: () => dispatch({ type: CLASS_DEC }),
-	};
+const actionCreators = {
+	classDecrement,
+	classIncrement,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ComponentExample);
+export default connect(mapState, actionCreators)(ClassExample);

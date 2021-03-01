@@ -16,6 +16,7 @@ export const classCounterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { classDecrement, classIncrement } = classCounterSlice.actions;
+const { actions, reducer } = classCounterSlice;
+export const { classDecrement, classIncrement } = actions;
 
-export default classCounterSlice.reducer;
+export default reducer;
