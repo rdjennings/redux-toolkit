@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { funcDecrement, funcIncrement, simAsyncRequest } from './functionSlice';
+import { funcDecrement, simAsyncRequest } from './functionSlice';
 import classnames from 'classnames';
 
 const FunctionExample = () => {
 	const count = useSelector((state) => {
-		return state.functionCounter.value;
+		return state.functionCounter.count;
 	});
 	const isLoading = useSelector((state) => state.functionCounter.loading);
 

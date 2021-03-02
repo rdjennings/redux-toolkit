@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export const classCounterSlice = createSlice({
 	name: 'classCounter',
 	initialState: {
-		value: 0,
+		count: 0,
 	},
 	reducers: {
 		classIncrement: (state) => {
-			state.value += 1;
+			state.count += 1;
 		},
 		classDecrement: (state) => {
-			state.value -= 1;
+			state.count -= 1;
 		},
 	},
 });

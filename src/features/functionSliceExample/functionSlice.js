@@ -13,16 +13,16 @@ export const simAsyncRequest = createAsyncThunk(
 export const funcCounterSlice = createSlice({
 	name: 'funcCounter',
 	initialState: {
-		value: 0,
+		count: 0,
 		loading: false,
 	},
 	reducers: {
 		funcIncrement: (state) => {
-			state.value += 1;
+			state.count += 1;
 			state.loading = true;
 		},
 		funcDecrement: (state) => {
-			state.value -= 1;
+			state.count -= 1;
 		},
 		setLoading: (state) => {
 			state.loading = !state.loading;

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import store from '../../redux/store';
 
 import { classDecrement, classIncrement } from './classSlice';
+
 class ClassExample extends Component {
 	render() {
+		const { count, decrement, increment } = this.props;
+
 		const incrementCount = () => {
-			this.props.classIncrement();
+			increment();
 		};
+
 		const decrementCount = () => {
-			this.props.classDecrement();
+			decrement();
 		};
-		const count = this.props.count;
+
 		return (
 			<div className="wrapper">
 				<div>Classes Count: {count}</div>
@@ -25,14 +28,14 @@ class ClassExample extends Component {
 }
 
 const mapStateToProps = (state) => {
-	const count = state.classCounter.value;
+	const count = state.classCounter.count;
 	return { count };
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		classIncrement: () => dispatch(classIncrement()),
-		classDecrement: () => dispatch(classDecrement()),
+		increment: () => dispatch(classIncrement()),
+		decrement: () => dispatch(classDecrement()),
 	};
 };
 
