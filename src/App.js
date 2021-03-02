@@ -5,6 +5,7 @@ import FunctionExample from './features/functionSliceExample/FunctionExample';
 function App() {
 	return (
 		<div>
+			<h2 className="meathodLabel">Redux Toolkit</h2>
 			<ComponentExample />
 			<FunctionExample />
 		</div>
