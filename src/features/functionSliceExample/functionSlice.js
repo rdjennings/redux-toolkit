@@ -6,7 +6,6 @@ export const simAsyncRequest = createAsyncThunk(
 		dispatch(setLoading());
 		const delay = () => new Promise((res) => setTimeout(res, 1000));
 		await delay();
-		debugger;
 		dispatch(funcIncrement());
 	}
 );

@@ -6,12 +6,12 @@ import { classDecrement, classIncrement } from './classSlice';
 class ClassExample extends Component {
 	render() {
 		const incrementCount = () => {
-			store.dispatch(classIncrement());
+			this.props.classIncrement();
 		};
 		const decrementCount = () => {
-			store.dispatch(classDecrement());
+			this.props.classDecrement();
 		};
-		const count = this.props.classCounter.value;
+		const count = this.props.count;
 		return (
 			<div className="wrapper">
 				<div>Classes Count: {count}</div>
@@ -24,13 +24,16 @@ class ClassExample extends Component {
 	}
 }
 
-const mapState = (state) => {
-	return state;
+const mapStateToProps = (state) => {
+	const count = state.classCounter.value;
+	return { count };
 };
 
-const actionCreators = {
-	classDecrement,
-	classIncrement,
+const mapDispatchToProps = (dispatch) => {
+	return {
+		classIncrement: () => dispatch(classIncrement()),
+		classDecrement: () => dispatch(classDecrement()),
+	};
 };
 
-export default connect(mapState, actionCreators)(ClassExample);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassExample);
