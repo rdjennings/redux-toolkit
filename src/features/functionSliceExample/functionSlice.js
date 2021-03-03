@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { setLoading } from '../utilitySlice';
 
 export const simAsyncRequest = createAsyncThunk(
 	'funcCounter/simAsyncRequest',
 	async (_, { dispatch }) => {
-		dispatch(setLoading());
+		dispatch(setLoading(true));
 		const delay = () => new Promise((res) => setTimeout(res, 1000));
 		await delay();
 		dispatch(funcIncrement());
+		dispatch(setLoading(false));
 	}
 );
 
@@ -21,22 +23,19 @@ export const funcCounterSlice = createSlice({
 			state.count += 1;
 			state.loading = true;
 		},
-		funcDecrement: (state) => {
+		funcDecrement: (state, action) => {
 			state.count -= 1;
-		},
-		setLoading: (state) => {
-			state.loading = !state.loading;
 		},
 	},
 	extraReducers: {
 		[simAsyncRequest.fulfilled]: (state) => {
-			state.loading = false;
+			// do any followup work here (like other state updates)
 		},
 	},
 });
 
 // Action creators are generated for each case reducer function
 const { actions, reducer } = funcCounterSlice;
-export const { funcDecrement, funcIncrement, setLoading } = actions;
+export const { funcDecrement, funcIncrement } = actions;
 
 export default reducer;

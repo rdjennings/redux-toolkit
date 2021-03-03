@@ -7,7 +7,7 @@ const FunctionExample = () => {
 	const count = useSelector((state) => {
 		return state.functionCounter.count;
 	});
-	const isLoading = useSelector((state) => state.functionCounter.loading);
+	const isLoading = useSelector((state) => state.utilities.loading);
 
 	const dispatch = useDispatch();
 	const increment = () => {
